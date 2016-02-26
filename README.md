@@ -13,6 +13,7 @@ Dependencies
 Library Project :
 ```
 Android Support v7 Appcompat
+NineOldAndroids 2.4.0
 ```
 
 Sample Project :
@@ -36,7 +37,7 @@ Preparing the second fragment to be added in onClick void :
 				informer.setCircleColor(color);
 				// if your views are behind status bar set this to true (Used In API 19+)
 				boolean is_views_behind_status_bar = false;
-				// the base view that the start point of color pop would be the exactly center of that
+				// the base view that the start point of color pop would be exactly center of that
 				// view if mode is set to FragmentInformer.MODE_CENTER
 				informer.setBaseView(v, FragmentInformer.MODE_CENTER,
 						is_views_behind_status_bar);

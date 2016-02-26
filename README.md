@@ -31,7 +31,7 @@ Preparing the second fragment to be added in onClick void :
 			@Override
 			public void onClick(View v) {
 				SecondFragment fragment = new SecondFragment();
-				// used to infrom the second fragment
+				// used to inform the second fragment
 				FragmentInformer informer = new FragmentInformer(getContext());
 				// color of the cricle
 				informer.setCircleColor(color);
@@ -41,6 +41,8 @@ Preparing the second fragment to be added in onClick void :
 				// view if mode is set to FragmentInformer.MODE_CENTER
 				informer.setBaseView(v, FragmentInformer.MODE_CENTER,
 						is_views_behind_status_bar);
+				//finally inform the fragment with this call
+				informer.informColorPopFragment(fragment);
 			    //Fragment transaction
 				FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 				transaction.addToBackStack(null);
@@ -53,7 +55,7 @@ Preparing the second fragment to be added in onClick void :
 SecondFragment.java :
 ```java 
 
-// note that your fragment must extend ColorPopFragment or ColorPopPageFragment (which have a different usage)
+// note that your class must extend ColorPopFragment or ColorPopPageFragment (which have a different usage)
 public class SecondFragmentList extends ColorPopFragment{
     // the base view of fragment
 	private View fragment_view;

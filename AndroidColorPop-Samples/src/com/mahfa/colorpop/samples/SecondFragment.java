@@ -22,7 +22,7 @@ public class SecondFragment extends ColorPopPageFragment {
 				container, false);
 		if (android.os.Build.VERSION.SDK_INT >= 19) {
 			fragment_view.setBackgroundColor(getResources().getColor(R.color.material_blue_grey_800));
-		    fragment_view.setPadding(0, ColorPopUtils.getStatusBarHeightPixles(getContext()), 0, 0);
+		    fragment_view.setPadding(0, ColorPopUtils.getStatusBarHeightPixels(getContext()), 0, 0);
 		}
 		return fragment_view;
 	}
@@ -38,7 +38,7 @@ public class SecondFragment extends ColorPopPageFragment {
 	}
 
 	@Override
-	public void onAnimationEnd() {
+	public void onBackgroundAnimationEnd() {
 		Context context = getContext();
 		if (context!= null) {
 			Animation fade_in = AnimationUtils.loadAnimation(getContext(), R.anim.abc_fade_in);

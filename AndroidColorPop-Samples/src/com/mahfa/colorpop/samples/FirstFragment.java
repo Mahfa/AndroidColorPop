@@ -9,12 +9,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.GridView;
 
-public class FirstFragment extends Fragment {
+public class FirstFragment extends Fragment implements Toolbar.OnMenuItemClickListener{
+	private Toolbar toolbar;
 	public FirstFragment() {
 
 	}
@@ -28,7 +30,7 @@ public class FirstFragment extends Fragment {
 			view.setBackgroundColor(getResources().getColor(
 					R.color.material_blue_grey_800));
 			view.setPadding(0,
-					ColorPopUtils.getStatusBarHeightPixles(getContext()), 0, 0);
+					ColorPopUtils.getStatusBarHeightPixels(getContext()), 0, 0);
 		}
 		return view;
 	}
@@ -36,8 +38,10 @@ public class FirstFragment extends Fragment {
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
-		Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+		toolbar = (Toolbar) view.findViewById(R.id.toolbar);
 		toolbar.setTitle("AndroidColorPop");
+		toolbar.inflateMenu(R.menu.main);
+		toolbar.setOnMenuItemClickListener(this);
 		GridView grid = (GridView) view.findViewById(R.id.list);
 		GridAdapter adapter = new GridAdapter(getActivity());
 		grid.setAdapter(adapter);
@@ -68,5 +72,22 @@ public class FirstFragment extends Fragment {
 				transaction.commit();
 			}
 		});
+	}
+
+	@Override
+	public boolean onMenuItemClick(MenuItem arg0) {
+		FragmentInformer informer = new FragmentInformer(getActivity());
+		View item_view = toolbar.findViewById(arg0.getItemId());
+		informer.setBaseView(item_view, FragmentInformer.MODE_CENTER, false);
+		SearchFragment fragment = new SearchFragment();
+		informer.informFragment(fragment);
+		FragmentTransaction transaction = getActivity()
+				.getSupportFragmentManager().beginTransaction();
+		transaction.setCustomAnimations(0, R.anim.abc_popup_exit, 0,
+				R.anim.abc_popup_exit);
+		transaction.addToBackStack(null);
+		transaction.add(android.R.id.content, fragment);
+		transaction.commit();
+		return true;
 	}
 }

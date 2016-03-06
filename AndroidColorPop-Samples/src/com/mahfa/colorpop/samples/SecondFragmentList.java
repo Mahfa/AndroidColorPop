@@ -28,7 +28,7 @@ public class SecondFragmentList extends ColorPopFragment implements
 				container, false);
 		if (android.os.Build.VERSION.SDK_INT >= 19) {
 			fragment_view.setPadding(0,
-					ColorPopUtils.getStatusBarHeightPixles(getContext()), 0, 0);
+					ColorPopUtils.getStatusBarHeightPixels(getContext()), 0, 0);
 		}
 		toolbar = (Toolbar) fragment_view.findViewById(R.id.toolbar);
 		list = (ListView) fragment_view.findViewById(R.id.list);
@@ -36,7 +36,7 @@ public class SecondFragmentList extends ColorPopFragment implements
 	}
 
 	@Override
-	public void onAnimationEnd() {
+	public void onBackgroundAnimationEnd() {
 		fragment_view.setVisibility(View.VISIBLE);
 		toolbar.setVisibility(View.INVISIBLE);
 		Context context = getContext();

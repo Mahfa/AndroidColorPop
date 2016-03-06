@@ -71,7 +71,7 @@ public class SecondFragmentList extends ColorPopFragment{
 	}
 	// called after the pop animation ends
 	@Override
-	public void onAnimationEnd() {
+	public void onBackgroundAnimationEnd() {
 	    // set visibility of fragment_view to VISIBLE
 		fragment_view.setVisibility(View.VISIBLE);
 	}

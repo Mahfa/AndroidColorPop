@@ -7,22 +7,25 @@ A library to show a color pop in a new fragment based on position of clicked vie
 
 It uses simple draw calls so it can be used in API 7+.
 
-Dependencies
-------
+### How to install
+Add jitpack in your root build.gradle at the end of repositories:
+```
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+Step 2. Add the dependency
 
-Library Project :
 ```
-Android Support v7 Appcompat
-NineOldAndroids 2.4.0
-```
-
-Sample Project :
-```
-Android Support Design
+	dependencies {
+	        implementation 'com.github.Mahfa:AndroidColorPop:3.0'
+	}
 ```
 
-Simple Usage
-------
+### Usage
 
 Preparing the second fragment to be added in onClick void :
 ```java

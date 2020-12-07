@@ -5,7 +5,6 @@ A library to show a color pop in a new fragment based on position of clicked vie
 
 ![AndroidColorPop](androidcolorpop.gif)  
 
-It uses simple draw calls so it can be used in API 7+.
 
 ### How to install
 Add jitpack in your root build.gradle at the end of repositories:
@@ -83,7 +82,7 @@ public class SecondFragmentList extends ColorPopFragment{
 License
 -------
 
-    Copyright 2016 Mahdi Fallahi
+    Copyright 2020 Mahdi Fallahi
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
